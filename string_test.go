@@ -98,16 +98,14 @@ func TestString_UnmarshalJSON(t *testing.T) {
 	assert.NoError(t, err)
 
 	assert.True(t, instance.WithZeroValue.Present())
-	assert.Equal(t, "foo", *instance.WithValue.value)
+	assert.Equal(t, "foo", instance.WithValue.value)
 
 	assert.True(t, instance.WithZeroValue.Present())
-	assert.Equal(t, "", *instance.WithZeroValue.value)
+	assert.Equal(t, "", instance.WithZeroValue.value)
 
 	assert.False(t, instance.WithNoValue.Present())
-	assert.Nil(t, instance.WithNoValue.value)
 
 	assert.False(t, instance.Unused.Present())
-	assert.Nil(t, instance.Unused.value)
 }
 
 func TestString_UnmarshalJSON_Overwritten(t *testing.T) {
@@ -130,16 +128,15 @@ func TestString_UnmarshalJSON_Overwritten(t *testing.T) {
 	assert.NoError(t, err)
 
 	assert.True(t, instance.WithValue.Present())
-	assert.Equal(t, "foo", *instance.WithValue.value)
+	assert.Equal(t, "foo", instance.WithValue.value)
 
 	assert.True(t, instance.WithZeroValue.Present())
-	assert.Equal(t, "", *instance.WithZeroValue.value)
+	assert.Equal(t, "", instance.WithZeroValue.value)
 
 	assert.False(t, instance.WithNoValue.Present())
-	assert.Nil(t, instance.WithNoValue.value)
 
 	assert.True(t, instance.Unused.Present())
-	assert.Equal(t, "seed_d", *instance.Unused.value)
+	assert.Equal(t, "seed_d", instance.Unused.value)
 }
 
 func TestString_Comparable(t *testing.T) {
