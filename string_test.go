@@ -141,3 +141,10 @@ func TestString_UnmarshalJSON_Overwritten(t *testing.T) {
 	assert.True(t, instance.Unused.Present())
 	assert.Equal(t, "seed_d", *instance.Unused.value)
 }
+
+func TestString_Comparable(t *testing.T) {
+	foo := NewString("foo")
+	sameFoo := NewString("foo")
+
+	assert.True(t, foo == sameFoo)
+}
